@@ -1,1 +1,6 @@
-module.exports = require('./lib/utility.js')
+import utiDate from './lib/utiDate.js';
+
+export {
+  utiDate
+
+};
