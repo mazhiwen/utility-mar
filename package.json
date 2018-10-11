@@ -1,6 +1,6 @@
 {
   "name": "utility-mar",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "my own utility for studing and test",
   "main": "index.js",
   "scripts": {
