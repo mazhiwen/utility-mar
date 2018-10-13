@@ -1,8 +1,8 @@
-import utiDate from './lib/utiDate.js';
-import cookie from './lib/cookie.js';
-import dataFormat from './lib/dataFormat.js';
-import download from './lib/download.js';
-import validate from './lib/validate.js';
+import utiDate from './src/utiDate.js';
+import cookie from './src/cookie.js';
+import dataFormat from './src/dataFormat.js';
+import download from './src/download.js';
+import validate from './src/validate.js';
 export {
   utiDate,
   cookie,

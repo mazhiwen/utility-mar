@@ -4,7 +4,7 @@
   "description": "my own utility for studing and test",
   "main": "index.js",
   "scripts": {
-    "test": "mocha --timeout 2000 --recursive"
+    "test": "mocha --timeout 2000 "
   },
   "repository": {
     "type": "git",
@@ -20,6 +20,9 @@
   },
   "homepage": "https://github.com/mazhiwen/utility-mar#readme",
   "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-preset-env": "^1.7.0",
+    "babel-register": "^6.26.0",
     "chai": "^4.1.2"
   },
   "sideEffects": false

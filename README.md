@@ -7,10 +7,11 @@
 
 ## 测试：
 
-mocha
-chai
+yarn test
 
+单个文件:mocha test/dataFormat.test.js
 
 ## 步骤
+npm install -g mocha
 
 npm install
