@@ -17,12 +17,11 @@ function validator(paramsOrigin){
     }
   }
   */
- console.log('constructor');
   let params={
     ...paramsOrigin
   };
   this.patterns = {
-    ...params.patterns,
+    
     'qq':{
       'pattern':/^\d{6,12}$/,
       'errorMessage': '请输入正确的qq'
@@ -79,7 +78,12 @@ function validator(paramsOrigin){
     'noBlank':{
       'pattern': /^\S+$/,
       'errorMessage': ''
-    }
+    },
+    'password':{
+      'pattern':/^[\d|\w]{6,8}$/,
+      'errorMessage': '请输入正确的密码'
+    },
+    ...params.patterns
   };
 }
 
@@ -89,7 +93,7 @@ validator.prototype. validate = function(params){
   params :Array [{type,value,msg}]
   */
   console.log('validate');
-  return new Promise(function(resolve, reject){
+  return new Promise((resolve, reject)=>{
     let result=true;
     for (let {type,value,msg} of params){
       let pattern = this.patterns[type];
@@ -97,7 +101,7 @@ validator.prototype. validate = function(params){
       if (pattern) {
         result = null != value && value!==''  && pattern['pattern'].test(value);
         if(!result){
-          Vue.prototype.$Notice.error({
+          Vue.prototype.$Notice.warning({
             title:'输入错误',
             //msg取传入，没有取默认
             desc:msg||this.patterns[type]['errorMessage']
