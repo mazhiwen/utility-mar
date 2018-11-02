@@ -64,9 +64,6 @@ plateNumber 车牌号
 noBlank 匹配一个非空白符  
 password 8位数字加字母的组合  
 
-
-
-
 ## 测试：
 
 yarn test
@@ -80,12 +77,15 @@ mocha
 chai
 
 ## 步骤
+
 npm install -g mocha
 
 npm install
 
+## 发布
 
-
-
+修改package.json版本  
+npm login  marjoven  *****  
+npm publish
 
 
