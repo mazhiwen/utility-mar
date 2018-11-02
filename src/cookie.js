@@ -1,26 +1,30 @@
 
 export default {
     get:function(name) {
-        var strcookie = document.cookie;//获取cookie字符串
-        var arrcookie = strcookie.split("; ");//分割
-        //遍历匹配
-        for ( var i = 0; i < arrcookie.length; i++) {
-        var arr = arrcookie[i].split("=");
-            if (arr[0] == name){
-            return arr[1];
-            }
-        }
-        return "";
-         
+      return decodeURIComponent(document.cookie.replace(new RegExp('(?:(?:^|.*;)\\s*' + encodeURIComponent(key).replace(/[-.+*]/g, '\\$&') + '\\s*\\=\\s*([^;]*).*$)|^.*$'), '$1')) || null;    
     },
-    set:function (name,value,expiredays){
-        var exdate=new Date()
-        exdate.setDate(exdate.getDate()+expiredays)
-        document.cookie=name+ "=" +escape(value)+
-        ((expiredays==null) ? "" : ";expires="+exdate.toGMTString())
-        +';path=/';
-    }
-
-
-
-}
+    set: function ({key, value, end, path, domain, secure}) {
+      
+      if (!key || /^(?:expires|max\-age|path|domain|secure)$/i.test(key)) { return false; }
+      var sExpires = '';
+      if (end) {
+        switch (end.constructor) {
+          case Number:
+            sExpires = end === Infinity ? '; expires=Fri, 31 Dec 9999 23:59:59 GMT' : '; max-age=' + end;
+            break;
+          case String:
+            sExpires = '; expires=' + end;
+            break;
+          case Date:
+            sExpires = '; expires=' + end.toUTCString();
+            break;
+        }
+      }
+      let cookieContent=encodeURIComponent(key) + '=' + encodeURIComponent(value) + sExpires + (domain ? '; domain=' + domain : '') + (path ? '; path=' + path : '') + (secure ? '; secure' : '');
+      document.cookie = cookieContent;
+      return true;
+    },
+  
+  
+  
+  }

@@ -80,8 +80,8 @@ function validator(paramsOrigin){
       'errorMessage': ''
     },
     'password':{
-      'pattern':/^[\d|\w]{6,8}$/,
-      'errorMessage': '请输入正确的密码'
+      'pattern':/^(?=.*[a-zA-Z])(?=.*\d)[a-zA-Z\d]{8}$/,
+      'errorMessage':'密码应为8位数字加字母的组合'
     },
     ...params.patterns
   };
@@ -92,7 +92,6 @@ validator.prototype. validate = function(params){
   /*
   params :Array [{type,value,msg}]
   */
-  console.log('validate');
   return new Promise((resolve, reject)=>{
     let result=true;
     for (let {type,value,msg} of params){
