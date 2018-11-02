@@ -1,4 +1,5 @@
 # 工具库
+这是马治文做的npm工具包
 
 ## 安装
 
@@ -32,12 +33,31 @@ import {utiDate} from 'utility-mar';
 ### dataFormat: 数据格式化处理
 
 * .deleteEmpty(obj) 删除空元素  
-
+˚
 ***参数***:Object
 
 ### download 下载
 
 ### validator 校验相关
+
+```javascript
+new validator(configs)
+
+//参数configs:
+{
+  patterns:{
+    ...,
+    'password':{
+      'pattern':/^(?=.*[a-zA-Z])(?=.*\d)[a-zA-Z\d]{8}$/,
+      'errorMessage':'密码应为8位数字加字母的组合'
+    }
+  },
+  ...
+}
+//返回validator 对象
+```
+
+
 
 * .getPattern({
       type:''
@@ -53,7 +73,7 @@ import {utiDate} from 'utility-mar';
 * .validate(props)  
 ***参数***:props:Array [{type,value,msg}]  
 ***返回***:promise
-
+* .config
 * type类型:  
 qq  
 mobile  

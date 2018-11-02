@@ -1,6 +1,6 @@
 {
   "name": "utility-mar",
-  "version": "1.0.3",
+  "version": "1.0.5",
   "description": "my own utility for studing and test",
   "main": "index.js",
   "scripts": {
@@ -11,7 +11,10 @@
     "url": "git+https://github.com/mazhiwen/utility-mar.git"
   },
   "keywords": [
-    "utility"
+    "utility",
+    "cookie",
+    "date",
+    "validator"
   ],
   "author": "Marjoven",
   "license": "ISC",
