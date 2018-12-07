@@ -1,3 +1,17 @@
 {
-    "presets": [ "env" ]
-  }
+  "presets": [
+    
+      [
+        "env",
+        {
+          "targets":{
+            "uglify":true
+          }
+        }
+      ],
+      "stage-0",
+      "minify"
+    
+  ]
+
+}

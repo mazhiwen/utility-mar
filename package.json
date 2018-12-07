@@ -4,7 +4,8 @@
   "description": "my own utility for studing and test",
   "main": "index.js",
   "scripts": {
-    "test": "mocha --timeout 2000 "
+    "test": "mocha --timeout 2000 ",
+    "build": "babel src -d lib"
   },
   "repository": {
     "type": "git",
@@ -26,6 +27,8 @@
     "babel-core": "^6.26.3",
     "babel-preset-env": "^1.7.0",
     "babel-register": "^6.26.0",
+    "babel-preset-minify": "^0.5.0",
+    "babel-preset-stage-0": "^6.24.1",
     "chai": "^4.1.2"
   },
   "sideEffects": false
