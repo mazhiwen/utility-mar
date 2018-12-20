@@ -25,17 +25,15 @@ console.log(Object. prototype. toString. call( a ) == "[object Object]");
 console.log(a.length);
 
 
-// describe('utility:时间转换', function() {
-  
-//   it('毫秒转换为datetime', function() {   
-//     expect(dataFormat.deleteEmpty({
-//       a:'',
-//       b:2
-//     })).to.be.equal({b:2});
-//   });
+describe('测dataFormat', function() {
+  it('测dataFormat', function() {
+    let value={
+      'b':undefined,
+      'a':'2'
+    };
+    dataFormat.deleteEmpty(value); 
+    
+    expect(value.hasOwnProperty('b')).to.be.equal(false);
+  });
 
-
-
-
-
-// })
+})
