@@ -1,6 +1,6 @@
 
 
-import Vue from 'vue';
+// import Vue from 'vue';
 //需要写一个可配置的单例 
 
 // const phone = /^(0?1[34587]\d{9})$|^((0(10|2[0-3]|[3-9]\d{2}))?-?[1-9]\d{6,7})$|^[4|8]00-?\d{3}-?\d{4}$/;
@@ -14,10 +14,13 @@ function validator(paramsOrigin){
         'pattern':/^\d{6,12}$/,
         'errorMessage': '请输入正确的qq'
       },
+    },
+    errorHandler:()=>{
+
     }
   }
   */
-  let params={
+  var params={
     ...paramsOrigin
   };
   this.patterns = {
@@ -85,6 +88,7 @@ function validator(paramsOrigin){
     },
     ...params.patterns
   };
+  this.errorHandler=params.errorHandler;
 }
 
 
@@ -93,18 +97,18 @@ validator.prototype. validate = function(params){
   params :Array [{type,value,msg}]
   */
   return new Promise((resolve, reject)=>{
-    let result=true;
-    for (let {type,value,msg} of params){
-      let pattern = this.patterns[type];
-      // let pattern = global.validaterRegs[type] || patterns[type];
+    var result=true;
+    for (var {type,value,msg} of params){
+      var pattern = this.patterns[type];
+      // var pattern = global.validaterRegs[type] || patterns[type];
       if (pattern) {
         result = null != value && value!==''  && pattern['pattern'].test(value);
         if(!result){
-          Vue.prototype.$Notice.warning({
-            title:'输入错误',
-            //msg取传入，没有取默认
-            desc:msg||this.patterns[type]['errorMessage']
-          })
+          // Vue.prototype.$Notice.warning({
+          //   title:'输入错误',
+          //   desc:msg||this.patterns[type]['errorMessage']
+          // })
+          this.errorHandler();
           resolve(result);
           return;
         }
