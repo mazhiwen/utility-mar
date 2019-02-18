@@ -99,3 +99,6 @@ chai
 
 ### 发布
 
+修改package.json版本  
+npm login  marjoven  *****  
+npm publish
