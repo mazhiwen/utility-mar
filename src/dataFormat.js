@@ -25,7 +25,7 @@ function deleteEmpty(obj){
 
 
 export default  {
-  deleteEmpty:deleteEmpty
+  deleteEmpty
 
 
 }

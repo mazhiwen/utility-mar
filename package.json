@@ -1,7 +1,7 @@
 {
-  "name": "utility-mar",
-  "version": "1.0.5",
-  "description": "my own utility for studing and test",
+  "name": "@welab/welab-utilities",
+  "version": "1.0.14",
+  "description": "常用的公共组件 ",
   "main": "index.js",
   "scripts": {
     "test": "mocha --timeout 2000 --recursive --require babel-register",
@@ -9,22 +9,19 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/mazhiwen/utility-mar.git"
+    "url": "git@git.wolaidai.com:WelabCo/TB/FrontEnd/welab-utilities.git"
   },
   "keywords": [
-    "utility",
-    "cookie",
-    "date",
-    "validator"
+    "utility"
   ],
   "author": "Marjoven",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/mazhiwen/utility-mar/issues"
+    "url": "https://git.wolaidai.com:WelabCo/TB/FrontEnd/welab-utilities"
   },
-  "homepage": "https://github.com/mazhiwen/utility-mar#readme",
+  "homepage": "https://git.wolaidai.com:WelabCo/TB/FrontEnd/welab-utilities",
   "devDependencies": {
-    "babel-core": "^6.26.3",
+    "babel-cli": "^6.26.0",
     "babel-preset-env": "^1.7.0",
     "babel-preset-minify": "^0.5.0",
     "babel-preset-stage-0": "^6.24.1",

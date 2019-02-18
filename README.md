@@ -1,16 +1,24 @@
 # 工具库
-这是马治文做的npm工具包
 
-## 安装
+## 使用步骤
+
+项目环境安装nrm  
+
+```sh
+npm install -g nrm   
+# 切换nrm为我来贷npm 
+nrm add wldnpm http://npm.wolaidai.com:8080/  
+nrm use wldnpm
+```
 
 引入
 
 ```javascript
 // 全部引入
-import * as utilities from 'utility-mar';
+import * as utilities from 'welab-utilities';
 // 或者
 // 按需引入
-import {utiDate} from 'utility-mar';
+import {utiDate} from 'welab-utilities';
 ```
 
 ## 方法
@@ -18,12 +26,13 @@ import {utiDate} from 'utility-mar';
 ### utiDate :时间转换
 
 将时间转换为xxxx-xx-xx xx:xx:xx  
-* .toTime(props)
-* .toDateTime(props)
-* .toDate(props)
+date:[Date]，毫秒[Number],毫秒[String]
 
-***参数***:props:[Date]，毫秒[Number],毫秒[String]  
-***返回***:
+* .toTime(date)
+* .toDateTime(date)
+* .toDate(date)
+
+
 
 ### cookie 
 
@@ -32,63 +41,58 @@ import {utiDate} from 'utility-mar';
 
 ### dataFormat: 数据格式化处理
 
-* .deleteEmpty(obj) 删除空元素  
-˚
-***参数***:Object
+* .deleteEmpty(obj) 删除空元素
 
 ### download 下载
 
 ### validator 校验相关
 
-```javascript
-new validator(configs)
-
-//参数configs:
-{
-  patterns:{
-    ...,
-    'password':{
-      'pattern':/^(?=.*[a-zA-Z])(?=.*\d)[a-zA-Z\d]{8}$/,
-      'errorMessage':'密码应为8位数字加字母的组合'
-    }
-  },
-  ...
-}
-//返回validator 对象
-```
-
-
+- 当前版本,需要Vue环境 
 
 * .getPattern({
       type:''
    })  
-***返回***:，如:
-  ```javascript
-  {
+返回格式，如:
+{
+  'pattern':/^\d{6,12}$/,
+  'errorMessage': '请输入正确的qq'
+}
+* .validate(props)
+props:Array [{type,value,msg}]
+返回:promise
+
+```javascript
+regs = {
+  'mobile':{
     'reg': /^1[3|4|5|7|8][0-9]\d{8}$/,
     'errorMessage': '请输入正确的手机号码'
+  },
+  'invite_code':{
+    'reg': /^1[3|4|5|7|8][0-9]\d{8}$/,
+    'errorMessage': '请输入正确邀请码'
   }
-  ```
+}  
+```
 
-* .validate(props)  
-***参数***:props:Array [{type,value,msg}]  
-***返回***:promise
-* .config
-* type类型:  
-qq  
-mobile  
-invite_code 
-name  
-cnid 
-plateNumber 车牌号  
-noBlank 匹配一个非空白符  
-password 8位数字加字母的组合  
+* type类型
+qq
+mobile
+invite_code
+name
+cnid
+plateNumber 车牌号
+noBlank 匹配一个非空白符
+password 8位数字加字母的组合
 
-## 测试：
 
-yarn test
+## 开发步骤
 
-单个文件:mocha test/dataFormat.test.js
+npm install
+
+需要更新对应方法库，在lib目录下对应方法文件编写即可  
+新增方法，在根目录index.js导出加入
+
+### 测试：
 
 安装mocha chai
 在test目录写对应js的测试文件  
@@ -96,16 +100,22 @@ mocha执行测试
 mocha
 chai
 
-## 步骤
+### 发布
 
-npm install -g mocha
+测试 :integration分支
+1. 修改package.json verson
 
-npm install
+2. git打tag 
 
-## 发布
+如：
 
-修改package.json版本  
-npm login  marjoven  *****  
-npm publish
+```sh
+yarn bulild
+git add .&&
+git commit -m "readme"&&
+git tag -a v1.0.9 -m "readme"&&
+git push origin v1.0.9
 
-
+```
+发布环境需要执行yarn bulild
+正式:production分支 提工单运维更新

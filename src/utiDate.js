@@ -25,20 +25,24 @@ export default {
     var timeObj =paramToDate(millisecond);
     if(timeObj){
       return toTwoDigit(timeObj.getHours())+':'+toTwoDigit(timeObj.getMinutes())+':'+toTwoDigit(timeObj.getSeconds());
+    }else{
+      return ;
     }
   },
   toDateTime: function (millisecond) {
     var timeObj =paramToDate(millisecond);
     if(timeObj){
       return timeObj.getFullYear()+'-'+toTwoDigit(timeObj.getMonth()+1)+'-'+toTwoDigit(timeObj.getDate())+' '+toTwoDigit(timeObj.getHours())+':'+toTwoDigit(timeObj.getMinutes())+':'+toTwoDigit(timeObj.getSeconds());
-    }    
+    }else{
+      return ;
+    }
   },
   toDate: function (millisecond) {
     var timeObj =paramToDate(millisecond);
     if(timeObj){
       return timeObj.getFullYear()+'-'+toTwoDigit(timeObj.getMonth()+1)+'-'+toTwoDigit(timeObj.getDate());
     }else{
-      return '';
+      return ;
     }
   }
 }
