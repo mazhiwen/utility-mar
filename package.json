@@ -1,5 +1,5 @@
 {
-  "name": "@welab/welab-utilities",
+  "name": "utility-mar",
   "version": "1.0.14",
   "description": "常用的公共组件 ",
   "main": "index.js",
@@ -9,7 +9,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git@git.wolaidai.com:WelabCo/TB/FrontEnd/welab-utilities.git"
+    "url": ""
   },
   "keywords": [
     "utility"
@@ -17,9 +17,9 @@
   "author": "Marjoven",
   "license": "ISC",
   "bugs": {
-    "url": "https://git.wolaidai.com:WelabCo/TB/FrontEnd/welab-utilities"
+    "url": ""
   },
-  "homepage": "https://git.wolaidai.com:WelabCo/TB/FrontEnd/welab-utilities",
+  "homepage": "",
   "devDependencies": {
     "babel-cli": "^6.26.0",
     "babel-preset-env": "^1.7.0",
