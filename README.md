@@ -5,20 +5,17 @@
 项目环境安装nrm  
 
 ```sh
-npm install -g nrm   
-# 切换nrm为我来贷npm 
-nrm add wldnpm http://npm.wolaidai.com:8080/  
-nrm use wldnpm
+npm install -g nrm    
 ```
 
 引入
 
 ```javascript
 // 全部引入
-import * as utilities from 'welab-utilities';
+import * as utilities ;
 // 或者
 // 按需引入
-import {utiDate} from 'welab-utilities';
+import {utiDate} ;
 ```
 
 ## 方法
@@ -102,20 +99,3 @@ chai
 
 ### 发布
 
-测试 :integration分支
-1. 修改package.json verson
-
-2. git打tag 
-
-如：
-
-```sh
-yarn bulild
-git add .&&
-git commit -m "readme"&&
-git tag -a v1.0.9 -m "readme"&&
-git push origin v1.0.9
-
-```
-发布环境需要执行yarn bulild
-正式:production分支 提工单运维更新
