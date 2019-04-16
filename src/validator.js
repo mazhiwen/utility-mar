@@ -1,5 +1,27 @@
 
 
+
+function getSingleValidateHandler({isEmpty}){
+  if(isEmpty){
+    return function(reg,value){
+      let result=true;
+      if(value){
+        result = value&& reg.test(value);
+      }
+      
+      return result;
+    }
+  }else{
+    return function(reg,value){
+      let result=true;
+      result = null != value && value!==''  && reg.test(value);
+      return result;
+    }
+  }
+}
+
+
+
 // import Vue from 'vue';
 //需要写一个可配置的单例 
 
@@ -92,23 +114,26 @@ function validator(paramsOrigin){
 }
 
 
-validator.prototype. validate = function(params){
+validator.prototype. validate = function({
+  params,
+  isEmpty
+}){
   /*
   params :Array [{type,value,msg}]
   */
+  let singleValidateInstance=getSingleValidateHandler({isEmpty});
   return new Promise((resolve, reject)=>{
     var result=true;
     for (var {type,value,msg} of params){
       var pattern = this.patterns[type];
       // var pattern = global.validaterRegs[type] || patterns[type];
       if (pattern) {
-        result = null != value && value!==''  && pattern['pattern'].test(value);
+        // result = null != value && value!==''  && pattern['pattern'].test(value);
+        result=singleValidateInstance(pattern['pattern'],value);
         if(!result){
-          // Vue.prototype.$Notice.warning({
-          //   title:'输入错误',
-          //   desc:msg||this.patterns[type]['errorMessage']
-          // })
-          this.errorHandler();
+          this.errorHandler({
+            desc:msg||this.patterns[type]['errorMessage']
+          });
           resolve(result);
           return;
         }
@@ -132,5 +157,8 @@ validator.prototype. getPattern = function(params){
   
 
 }
+
+
+
 
 export default validator

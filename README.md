@@ -44,7 +44,35 @@ date:[Date]，毫秒[Number],毫秒[String]
 
 ### validator 校验相关
 
-- 当前版本,需要Vue环境 
+使用：实例化：
+
+let validator=new validatorOrigin({
+  patterns:{
+    'mobile':{
+      'pattern': /^1\d{10}$/,
+      'errorMessage': '请输入正确的手机号码'
+    },
+  },
+  errorHandler:({desc})=>{
+    Vue.prototype.$Notice.warning({
+      title:'输入错误',
+      //msg取传入，没有取默认
+      desc
+    })
+  }
+});
+
+
+//调用
+
+validator.validate({isEmpty:true,params:[]})
+  .then((valid)=>{
+    if(valid){
+
+      
+      
+    }
+  })
 
 * .getPattern({
       type:''
@@ -82,11 +110,17 @@ noBlank 匹配一个非空白符
 password 8位数字加字母的组合
 
 
+### copy
+
+.deepCopy 深拷贝
+
+
+
 ## 开发步骤
 
 npm install
 
-需要更新对应方法库，在lib目录下对应方法文件编写即可  
+需要更新对应方法库，在src目录下对应方法文件编写即可  
 新增方法，在根目录index.js导出加入
 
 ### 测试：
@@ -99,6 +133,7 @@ chai
 
 ### 发布
 
+执行npm build
 修改package.json版本  
 npm login  marjoven  *****  
 npm publish
