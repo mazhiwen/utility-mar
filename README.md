@@ -43,7 +43,7 @@ date:[Date]，毫秒[Number],毫秒[String]
 ### download 下载
 
 ### validator 校验相关
-
+```javascript
 使用：实例化：
 
 let validator=new validatorOrigin({
@@ -73,6 +73,7 @@ validator.validate({isEmpty:true,params:[]})
       
     }
   })
+```
 
 * .getPattern({
       type:''
