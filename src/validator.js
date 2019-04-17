@@ -87,10 +87,6 @@ function validator(paramsOrigin){
       'pattern': /^\S+$/,
       'errorMessage': '请选择学历'
     },
-    'liaison1':{
-      'pattern': /^\S+$/,
-      'errorMessage': '请输入联系人1电话'
-    },
     'base64Str':{
       'pattern': /^\S+$/,
       'errorMessage': '请上传图片'
