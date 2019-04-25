@@ -134,7 +134,7 @@ chai
 
 ### 发布
 
-执行npm build
+执行yarn build
 修改package.json版本  
 npm login  marjoven  *****  
 npm publish

@@ -3,25 +3,27 @@
 
 function getSingleValidateHandler({isEmpty}){
   if(isEmpty){
-    return function(reg,value){
-      let result=true;
-      if(value){
-        result = value&& reg.test(value);
-      }
-      
-      return result;
-    }
+    return singleValidateEmptyHandler
   }else{
-    return function(reg,value){
-      let result=true;
-      result = null != value && value!==''  && reg.test(value);
-      return result;
-    }
+    return singleValidateNoEmptyHandler
   }
 }
 
-
-
+function singleValidateEmptyHandler(reg,value){
+  let result=true;
+  if(value){
+    result = value&& reg.test(value);
+  }
+  
+  return result;
+}
+function singleValidateNoEmptyHandler(reg,value){
+  let result=true;
+  result = null != value && value!==''  && reg.test(value);
+  return result;
+  
+  return result;
+}
 // import Vue from 'vue';
 //需要写一个可配置的单例 
 
@@ -120,11 +122,18 @@ validator.prototype. validate = function({
   let singleValidateInstance=getSingleValidateHandler({isEmpty});
   return new Promise((resolve, reject)=>{
     var result=true;
-    for (var {type,value,msg} of params){
+    for (var {type,value,msg,isEmpty} of params){
       var pattern = this.patterns[type];
       // var pattern = global.validaterRegs[type] || patterns[type];
       if (pattern) {
         // result = null != value && value!==''  && pattern['pattern'].test(value);
+
+        if(typeof(isEmpty)=='boolean'){
+          
+          singleValidateInstance=getSingleValidateHandler({isEmpty})  
+          
+        }
+
         result=singleValidateInstance(pattern['pattern'],value);
         if(!result){
           this.errorHandler({
