@@ -22,7 +22,6 @@ function singleValidateNoEmptyHandler(reg,value){
   result = null != value && value!==''  && reg.test(value);
   return result;
   
-  return result;
 }
 // import Vue from 'vue';
 //需要写一个可配置的单例 
@@ -127,13 +126,11 @@ validator.prototype. validate = function({
       // var pattern = global.validaterRegs[type] || patterns[type];
       if (pattern) {
         // result = null != value && value!==''  && pattern['pattern'].test(value);
-
-        if(typeof(isEmpty)=='boolean'){
+        if(typeof(pattern.isEmpty)=='boolean'){
           
-          singleValidateInstance=getSingleValidateHandler({isEmpty})  
+          singleValidateInstance=getSingleValidateHandler({isEmpty:pattern.isEmpty})  
           
         }
-
         result=singleValidateInstance(pattern['pattern'],value);
         if(!result){
           this.errorHandler({
