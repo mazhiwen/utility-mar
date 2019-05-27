@@ -40,7 +40,7 @@ function deepDiff(obj,targetObj) {
   }
   return targetObj;
 }
-export default {
+export {
   deepCopy,
   deepDiff
 }
