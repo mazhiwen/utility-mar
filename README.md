@@ -116,6 +116,32 @@ password 8位数字加字母的组合
 .deepCopy 深拷贝
 
 
+### dataStructure
+
+#### .Tree
+<!-- 树结构数据结构 -->
+
+```js
+import { dataStructure } from "utility-mar"
+let data = [{
+  label: 'aa',
+  children: [{
+      label: 'bb'
+    },
+    {
+      label: 'cc'
+    }
+  ]
+}, {
+  label: '2'
+}];
+let treeInstance = new dataStructure.Tree(data);
+console.log("输入原始data");
+console.log(data);
+console.log(treeInstance.getNode(1).getParent().getData());
+```
+
+
 
 ## 开发步骤
 
