@@ -1,6 +1,6 @@
-function isIteration(obj){
+function isIteration(obj) {
   let objType = Object.prototype.toString.call(obj);
-  return objType=='[object Object]'||objType=='[object Array]'
+  return objType == '[object Object]' || objType == '[object Array]'
 }
 
 function deepCopy(obj) {
@@ -22,7 +22,7 @@ function deepCopy(obj) {
   return targetObj;
 }
 
-function deepDiff(obj,targetObj) {
+function deepDiff(obj, targetObj) {
   if (!isIteration(obj)) {
     throw new Error('error arguments');
   }
@@ -40,7 +40,7 @@ function deepDiff(obj,targetObj) {
   }
   return targetObj;
 }
-export {
+export default {
   deepCopy,
   deepDiff
 }
