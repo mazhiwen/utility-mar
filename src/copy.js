@@ -23,19 +23,33 @@ function deepCopy(obj) {
 }
 
 
+// 获取数组的并集
+
+function unionArray() {
+  let resArr = [];
+
+  Array.prototype.map.call(arguments, (value, index) => {
+    value.map((valueArr, indexArr) => {
+      if (!resArr.includes(valueArr)) {
+        resArr.push(valueArr);
+      }
+    })
+  });
+  return resArr;
+}
+
 let deepDiffResult = true;
 
 function deepDiffIteration(obj, targetObj) {
   if (!isIteration(obj)) {
     throw new Error('error arguments');
   }
+  let keys = unionArray(Object.keys(obj), Object.keys(targetObj));
+  for (let key of keys) {
 
-  for (let key in obj) {
-    console.log(obj);
-    console.log(key);
     if (obj.hasOwnProperty(key) && targetObj.hasOwnProperty(key)) {
       if (isIteration(obj[key])) {
-        deepDiff(obj[key], targetObj[key]);
+        deepDiffIteration(obj[key], targetObj[key]);
       } else {
         if (targetObj[key] !== obj[key]) {
           deepDiffResult = false;
@@ -47,7 +61,6 @@ function deepDiffIteration(obj, targetObj) {
       return;
     }
   }
-  // return true;
 }
 
 
@@ -57,8 +70,32 @@ function deepDiff(obj, targetObj) {
   return deepDiffResult;
 }
 
+// console.log(unionArray([1, 2], [3, 2]));
+// console.log(deepDiff(
+//   [{
+//     dimData: {
+//       column: [1],
+//       row: [3, 2]
+//     }
+//   }, {
+//     dimData: {
+//       column: [1],
+//       row: [3, 4]
+//     }
+//   }],
+//   [{
+//     dimData: {
+//       column: [1],
+//       row: [3, 2, 5]
+//     }
+//   }, {
+//     dimData: {
+//       column: [1],
+//       row: [3, 4]
+//     }
+//   }]
 
-
+// ));
 export default {
   deepCopy,
   deepDiff
