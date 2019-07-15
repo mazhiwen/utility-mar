@@ -22,25 +22,42 @@ function deepCopy(obj) {
   return targetObj;
 }
 
-function deepDiff(obj, targetObj) {
+
+let deepDiffResult = true;
+
+function deepDiffIteration(obj, targetObj) {
   if (!isIteration(obj)) {
     throw new Error('error arguments');
   }
+
   for (let key in obj) {
+    console.log(obj);
+    console.log(key);
     if (obj.hasOwnProperty(key) && targetObj.hasOwnProperty(key)) {
       if (isIteration(obj[key])) {
-        return deepDiff(obj[key], targetObj[key]);
+        deepDiff(obj[key], targetObj[key]);
       } else {
         if (targetObj[key] !== obj[key]) {
-          return false;
+          deepDiffResult = false;
+          return;
         }
       }
     } else {
-      return false;
+      deepDiffResult = false;
+      return;
     }
   }
-  return true;
+  // return true;
 }
+
+
+function deepDiff(obj, targetObj) {
+
+  deepDiffIteration(obj, targetObj);
+  return deepDiffResult;
+}
+
+
 
 export default {
   deepCopy,
