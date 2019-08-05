@@ -53,10 +53,7 @@ const deepDiff = (function(){
     if (!isIteration(obj)) {
       throw new Error('error arguments');
     }
-    console.log('uninkey开始');
-    console.log(Object.keys(obj), Object.keys(targetObj));
     let keys = unionArray(Object.keys(obj), Object.keys(targetObj));
-    console.log('uninkey结束');
     for (let key of keys) {
 
       if (obj.hasOwnProperty(key) && targetObj.hasOwnProperty(key)) {
@@ -75,40 +72,13 @@ const deepDiff = (function(){
     }
   }
 
-  return function(){
+  return function (obj, targetObj) {
     deepDiffResult = true;
     deepDiffIteration(obj, targetObj);
     return deepDiffResult;
   }
 })()
 
-
-// console.log(unionArray([1, 2], [3, 2]));
-// console.log(deepDiff(
-//   [{
-//     dimData: {
-//       column: [1],
-//       row: [3, 2]
-//     }
-//   }, {
-//     dimData: {
-//       column: [1],
-//       row: [3, 4]
-//     }
-//   }],
-//   [{
-//     dimData: {
-//       column: [1],
-//       row: [3, 2, 5]
-//     }
-//   }, {
-//     dimData: {
-//       column: [1],
-//       row: [3, 4]
-//     }
-//   }]
-
-// ));
 export default {
   deepCopy,
   deepDiff

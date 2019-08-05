@@ -40,7 +40,7 @@ console.log(copy.deepDiff(
           '1_2':{
             id:"222aa",
             member:[
-              {dimNo:"ddddd"}
+              {dimNo:"dddd2d"}
             ]
           }
         }
