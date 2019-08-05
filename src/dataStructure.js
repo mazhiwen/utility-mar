@@ -118,13 +118,21 @@ let Tree = (function () {
     })
     return childrensNodeList;
   }
+  // 获取所有子节点
+  // Node.prototype.getAllChildrens = function () {
+  //   let childrensNodeList = [];
+  //   this.childrens.map((value, index) => {
+  //     childrensNodeList.push(getNode(value));
+  //   })
+  //   return childrensNodeList;
+  // }
   // 获取当前节点数据
   Node.prototype.getData = function () {
     return this.data;
   };
 
 
-  // 获取某个Node
+  // 初始化tree，传入数据
   function Tree(data) {
     let currentIndex = 0;
     // 从根节点开始设置
@@ -153,7 +161,7 @@ let Tree = (function () {
     let childrensIndexList = [];
     // 处理子节点
     let childrenDataWithIndex = [];
-
+    
     childrensData && childrensData.map((valueChildren, indexChildren) => {
       const {
         children,
@@ -161,6 +169,7 @@ let Tree = (function () {
       } = valueChildren;
 
       let childNewDataListIndex = ++currentDataListIndex;
+      // 将index写入到原数据，以备其他使用
       valueChildren.index = childNewDataListIndex;
       // 写入子节点索引数组
       childrensIndexList.push(childNewDataListIndex);

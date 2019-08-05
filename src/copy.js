@@ -44,7 +44,10 @@ function deepDiffIteration(obj, targetObj) {
   if (!isIteration(obj)) {
     throw new Error('error arguments');
   }
+  console.log('uninkey开始');
+  console.log(Object.keys(obj), Object.keys(targetObj));
   let keys = unionArray(Object.keys(obj), Object.keys(targetObj));
+  console.log('uninkey结束');
   for (let key of keys) {
 
     if (obj.hasOwnProperty(key) && targetObj.hasOwnProperty(key)) {
