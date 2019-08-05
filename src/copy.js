@@ -68,7 +68,7 @@ function deepDiffIteration(obj, targetObj) {
 
 
 function deepDiff(obj, targetObj) {
-
+  deepDiffResult=true;
   deepDiffIteration(obj, targetObj);
   return deepDiffResult;
 }
