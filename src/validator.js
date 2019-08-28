@@ -23,26 +23,26 @@ function singleValidateNoEmptyHandler(reg,value){
   return result;
   
 }
-// import Vue from 'vue';
 //需要写一个可配置的单例 
 
 // const phone = /^(0?1[34587]\d{9})$|^((0(10|2[0-3]|[3-9]\d{2}))?-?[1-9]\d{6,7})$|^[4|8]00-?\d{3}-?\d{4}$/;
 // const cnid = /^(^[1-9]\d{7}((0\d)|(1[0-2]))(([0|1|2]\d)|3[0-1])\d{3}$)|(^[1-9]\d{5}[1-9]\d{3}((0\d)|(1[0-2]))(([0|1|2]\d)|3[0-1])((\d{4})|\d{3}x)$)$/i;
 
+// 传入初始化参数
 function validator(paramsOrigin){
-  /*
-  params:{
-    patterns:{
-      'qq':{
-        'pattern':/^\d{6,12}$/,
-        'errorMessage': '请输入正确的qq'
-      },
-    },
-    errorHandler:()=>{
-
-    }
-  }
-  */
+  
+  // paramsOrigin: {
+  //   patterns:{
+  //     'qq':{
+  //       'pattern':/^\d{6,12}$/,
+  //       'errorMessage': '请输入正确的qq'
+  //     },
+  //   },
+  //  // 错误处理回调方法
+  //   errorHandler:()=>{
+  //   }
+  // }
+  
   var params={
     ...paramsOrigin
   };

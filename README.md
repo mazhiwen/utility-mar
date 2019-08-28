@@ -1,58 +1,73 @@
-# 工具库
+# 工具库 utility-mar
 
-## 使用步骤
+常见的一些工具类方法
 
-项目环境安装nrm  
 
-```sh
-npm install -g nrm    
+## 安装
+
+
+```bash
+$ npm install axios
 ```
-
-引入
 
 ```javascript
 // 全部引入
-import * as utilities ;
+import * as utility from utility-mar;
 // 或者
 // 按需引入
-import {utiDate} ;
+import {utiDate} from utility-mar;
 ```
 
-## 方法
 
-### utiDate :时间转换
+## API
+
+utility.method调用对应的API库
+
+method为以下API方法
+
+### **.utiDate**
 
 将时间转换为xxxx-xx-xx xx:xx:xx  
-date:[Date]，毫秒[Number],毫秒[String]
 
-* .toTime(date)
-* .toDateTime(date)
-* .toDate(date)
+* utility.utiDate.toTime(date)
+* utility.utiDate.toDateTime(date)
+* utility.utiDate.toDate(date)
 
+date参数:[Date] | 毫秒[Number] | 毫秒[String]
 
-
-### cookie 
+### **.cookie**
 
 * .get(name)
 * .set({key, value, end, path, domain, secure})
 
-### dataFormat: 数据格式化处理
+### **.dataFormat**
+
+数据格式化处理
 
 * .deleteEmpty(obj) 删除空元素
 
-### download 下载
+### **.download**
 
-### validator 校验相关
+ 下载
+
+### **.validator**
+
+校验相关
+
+#### 示例:
+
 ```javascript
-使用：实例化：
-
-let validator=new validatorOrigin({
+import { validator as validatorOrigin } from utility-mar;
+// 使用：实例化一个validator
+const validator=new validatorOrigin({
+  // 自定义的校验type ， reg规则 ，错误信息
   patterns:{
     'mobile':{
       'pattern': /^1\d{10}$/,
       'errorMessage': '请输入正确的手机号码'
     },
   },
+  // 自定义错误回调方法
   errorHandler:({desc})=>{
     Vue.prototype.$Notice.warning({
       title:'输入错误',
@@ -62,63 +77,69 @@ let validator=new validatorOrigin({
   }
 });
 
-
 //调用
-
-validator.validate({isEmpty:true,params:[]})
+validator.validate({isEmpty:true,params:[
+  {
+    type:"mobile",
+    errorMessage:"..."
+  }
+]})
   .then((valid)=>{
     if(valid){
-
-      
-      
+      // valid是校验结果
     }
   })
 ```
 
-* .getPattern({
-      type:''
-   })  
-返回格式，如:
-{
-  'pattern':/^\d{6,12}$/,
-  'errorMessage': '请输入正确的qq'
-}
-* .validate(props)
-props:Array [{type,value,msg}]
-返回:promise
+#### validator实例 API :  
 
-```javascript
-regs = {
-  'mobile':{
-    'reg': /^1[3|4|5|7|8][0-9]\d{8}$/,
-    'errorMessage': '请输入正确的手机号码'
-  },
-  'invite_code':{
-    'reg': /^1[3|4|5|7|8][0-9]\d{8}$/,
-    'errorMessage': '请输入正确邀请码'
-  }
-}  
+* .getPattern({
+      type:'mobile'
+   })
+
+返回:type对应的pattern对象
+
+```js
+// 返回
+{
+  'pattern':/^\d{6,12}$/,//正则表达式
+  'errorMessage': '请输入正确的qq'//错误message信息
+}
 ```
 
-* type类型
+* .validate([{type,value,msg}])
+
+执行校验方法
+
+返回:promise
+
+
+
+#### 默认支持的type类型
+
 qq
+
 mobile
-invite_code
+
 name
+
 cnid
+
 plateNumber 车牌号
+
 noBlank 匹配一个非空白符
+
 password 8位数字加字母的组合
 
 
-### copy
+### **.copy**
 
 .deepCopy 深拷贝
 
 
-### dataStructure
+### **.dataStructure**
 
-#### .Tree
+- .Tree
 <!-- 树结构数据结构 -->
 
 ```js
