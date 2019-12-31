@@ -32,15 +32,18 @@ const getGradientColorsByValues = function ({
   values
 }) {
   const maxValue = Math.max(...values);
-  const diffR = end.red - start.red;
-  const diffG = end.green - start.green;
-  const diffB = end.blue - start.blue;
+  const startR = start.red;
+  const startG = start.green;
+  const startB = start.red;
+  const diffR = end.red - startR;
+  const diffG = end.green - startG;
+  const diffB = end.blue - startB;
   const colors = [];
   for (let value of values) {
     const ratio = value / maxValue;
-    const resR = Math.ceil(diffR * ratio);
-    const resG = Math.ceil(diffG * ratio);
-    const resB = Math.ceil(diffB * ratio);
+    const resR = Math.ceil(startR + diffR * ratio);
+    const resG = Math.ceil(startG + diffG * ratio);
+    const resB = Math.ceil(startB + diffB * ratio);
     colors.push(`rgb(${resR},${resG},${resB})`);
   }
   return colors;
