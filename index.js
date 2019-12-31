@@ -5,6 +5,7 @@ import download from './lib/download.js';
 import validator from './lib/validator.js';
 import copy from './lib/copy.js';
 import dataStructure from './lib/dataStructure.js';
+import color from './lib/color.js';
 
 export {
   utiDate,
@@ -13,5 +14,6 @@ export {
   dataFormat,
   validator,
   download,
-  dataStructure
+  dataStructure,
+  color
 };

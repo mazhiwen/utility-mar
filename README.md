@@ -3,12 +3,24 @@
 常见的一些工具类方法
 
 
+## 目录
+
+- [安装](#安装)
+- [API](#API)
+  - [.utiDate](#.utiDate)
+  - [.cookie](#.cookie)
+  - [.dataFormat](#.dataFormat)
+  - [.download](#.download)
+  - [.validator](#.validator)
+  - [.copy](#.copy)
+  - [.dataStructure](#.dataStructure)
+  - [.color](#.color)
+- [开发步骤](#开发步骤)
+
+
+
 ## 安装
 
-
-```bash
-$ npm install axios
-```
 
 ```javascript
 // 全部引入
@@ -25,7 +37,7 @@ utility.method调用对应的API库
 
 method为以下API方法
 
-### **.utiDate**
+### .utiDate
 
 将时间转换为xxxx-xx-xx xx:xx:xx  
 
@@ -35,22 +47,22 @@ method为以下API方法
 
 date参数:[Date] | 毫秒[Number] | 毫秒[String]
 
-### **.cookie**
+### .cookie
 
 * .get(name)
 * .set({key, value, end, path, domain, secure})
 
-### **.dataFormat**
+### .dataFormat
 
 数据格式化处理
 
 * .deleteEmpty(obj) 删除空元素
 
-### **.download**
+### .download
 
  下载
 
-### **.validator**
+### .validator
 
 校验相关
 
@@ -132,12 +144,12 @@ noBlank 匹配一个非空白符
 password 8位数字加字母的组合
 
 
-### **.copy**
+### .copy
 
 .deepCopy 深拷贝
 
 
-### **.dataStructure**
+### .dataStructure
 
 - .Tree
 <!-- 树结构数据结构 -->
@@ -162,6 +174,13 @@ console.log(data);
 console.log(treeInstance.getNode(1).getParent().getData());
 ```
 
+### .color
+
+- .getGradientColorsByValues
+
+- .getLightDarkColor
+
+- .getGradientColorsByNum
 
 
 ## 开发步骤

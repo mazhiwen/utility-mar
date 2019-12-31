@@ -2,14 +2,13 @@
   "presets": [
     
       [
-        "env",
+        "@babel/preset-env",
         {
           "targets":{
             "uglify":true
           }
         }
       ],
-      "stage-0",
       "minify"
     
   ]
