@@ -71,14 +71,7 @@ function insert(data) {
 
 // bst.inOrder(bst.root);
 
-
-
-
-
-
-
 // 树
-
 
 let Tree = (function () {
   let dataList = [];
@@ -192,8 +185,6 @@ let Tree = (function () {
   return Tree;
 })();
 
-
-
 // let data = [{
 //   label: 'aa',
 //   children: [{
@@ -216,6 +207,45 @@ let Tree = (function () {
 
 
 
+
+
+
+
+
+
+
+
+
+
+/*******************  排序  *************/
+
+
+const swap = (arr, index1, index2) => {
+  var temp = arr[index1];
+  arr[index1] = arr[index2];
+  arr[index2] = temp;
+}
+
+const bubbleSort = (data) => {
+  // if (valuePath) 
+  var numElements = data.length; // 数据总长度
+  for (var outer = numElements; outer >= 2; --outer) { //numElements 至 2 ，总numElements-1次
+    // console.log('outer' + outer);
+    for (var inner = 0; inner <= outer - 2; ++inner) {
+      // console.log('inner' + inner);
+      if (data[inner].value > data[inner + 1].value) {
+        swap(data, inner, inner + 1);
+      }
+      // console.log(data);
+    }
+  }
+}
+
+
+
 export default {
-  Tree
+  Tree,
+  sort: {
+    bubbleSort
+  }
 }

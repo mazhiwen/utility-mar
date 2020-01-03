@@ -29,40 +29,40 @@
 
 
 
-import copy from '../lib/copy';
-console.log(copy);
-console.log(copy.deepDiff(
-  [
-    {
-      dimData:{
-        page:{},
-        row:{
-          '1_2':{
-            id:"222aa",
-            member:[
-              {dimNo:"dddd2d"}
-            ]
-          }
-        }
-      },
-      name:2
-    },
-  ],
-  [
-    {
-      dimData: {
-        page: {},
-        row: {
-          '1_2': {
-            id: "222aa",
-            member: [{
-              dimNo: "ddddd"
-            }]
-          }
-        }
-      },
-      name: 2
-    }
-  ]
+// import copy from '../lib/copy';
+// console.log(copy);
+// console.log(copy.deepDiff(
+//   [
+//     {
+//       dimData:{
+//         page:{},
+//         row:{
+//           '1_2':{
+//             id:"222aa",
+//             member:[
+//               {dimNo:"dddd2d"}
+//             ]
+//           }
+//         }
+//       },
+//       name:2
+//     },
+//   ],
+//   [
+//     {
+//       dimData: {
+//         page: {},
+//         row: {
+//           '1_2': {
+//             id: "222aa",
+//             member: [{
+//               dimNo: "ddddd"
+//             }]
+//           }
+//         }
+//       },
+//       name: 2
+//     }
+//   ]
 
-));
+// ));
