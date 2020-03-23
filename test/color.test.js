@@ -25,25 +25,25 @@
 
 
 
-import dataStructure from '../lib/dataStructure';
-console.log(dataStructure);
+// import dataStructure from '../lib/dataStructure';
+// console.log(dataStructure);
 
-let data = [
-  {
-    value: 4
-  },
-  {
-    value: 3
-  },
-  {
-    value: 2
-  },
-  {
-    value: 1
-  }
-];
-dataStructure.sort.bubbleSort(
-// bubbleSort(
-  data
-);
-console.log(data);
+// let data = [
+//   {
+//     value: 4
+//   },
+//   {
+//     value: 3
+//   },
+//   {
+//     value: 2
+//   },
+//   {
+//     value: 1
+//   }
+// ];
+// dataStructure.sort.bubbleSort(
+// // bubbleSort(
+//   data
+// );
+// console.log(data);

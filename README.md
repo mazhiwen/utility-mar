@@ -146,7 +146,11 @@ password 8位数字加字母的组合
 
 ### .copy
 
-.deepCopy 深拷贝
+1. .deepCopy 深拷贝
+
+2. .deepDiff(parama, paramb) 比较
+
+如果相同，返回true。否则返回false
 
 
 ### .dataStructure
