@@ -1,3 +1,5 @@
+import util from './util';
+
 function isIteration(obj) {
   let objType = Object.prototype.toString.call(obj);
   return objType == '[object Object]' || objType == '[object Array]'
@@ -25,18 +27,18 @@ function deepCopy(obj) {
 
 // 获取数组的并集
 
-function unionArray() {
-  let resArr = [];
+// function unionArray() {
+//   let resArr = [];
 
-  Array.prototype.map.call(arguments, (value, index) => {
-    value.map((valueArr, indexArr) => {
-      if (!resArr.includes(valueArr)) {
-        resArr.push(valueArr);
-      }
-    })
-  });
-  return resArr;
-}
+//   Array.prototype.map.call(arguments, (value, index) => {
+//     value.map((valueArr, indexArr) => {
+//       if (!resArr.includes(valueArr)) {
+//         resArr.push(valueArr);
+//       }
+//     })
+//   });
+//   return resArr;
+// }
 
 // let deepDiffResult = true;
 
@@ -53,7 +55,7 @@ const deepDiff = (function(){
     if (!isIteration(obj)) {
       throw new Error('error arguments');
     }
-    let keys = unionArray(Object.keys(obj), Object.keys(targetObj));
+    let keys = util.unionArray(Object.keys(obj), Object.keys(targetObj));
     for (let key of keys) {
 
       if (obj.hasOwnProperty(key) && targetObj.hasOwnProperty(key)) {

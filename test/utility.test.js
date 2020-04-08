@@ -29,40 +29,50 @@
 
 
 
-import copy from '../lib/copy';
-console.log(copy);
-console.log(copy.deepDiff(
-  [
-    {
-      dimData:{
-        page:{},
-        row:{
-          '1_2':{
-            id:"222aa",
-            member:[
-              {dimNo:"dddd2d"}
-            ]
-          }
-        }
-      },
-      name:2
-    },
-  ],
-  [
-    {
-      dimData: {
-        page: {},
-        row: {
-          '1_2': {
-            id: "222aa",
-            member: [{
-              dimNo: "dddd2d"
-            }]
-          }
-        }
-      },
-      name: 2
-    }
-  ]
+// import copy from '../lib/copy';
+// console.log(copy.deepCopy({
+//   a:{
+//     aa:213,
+//     ddd:22222
+//   }
+// }));
+// console.log(copy.deepDiff(
+//   [
+//     {
+//       dimData:{
+//         page:{},
+//         row:{
+//           '1_2':{
+//             id:"222aa",
+//             member:[
+//               {dimNo:"dddd2d"}
+//             ]
+//           }
+//         }
+//       },
+//       name:2
+//     },
+//   ],
+//   [
+//     {
+//       dimData: {
+//         page: {},
+//         row: {
+//           '1_2': {
+//             id: "222aas",
+//             member: [{
+//               dimNo: "dddd2d"
+//             }]
+//           }
+//         }
+//       },
+//       name: 2
+//     }
+//   ]
 
-));
+// ));
+
+
+
+import util from '../lib/util';
+console.log(util.unionArray([1,2],[2,333,4,1]));

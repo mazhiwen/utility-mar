@@ -2,7 +2,6 @@
 
 常见的一些工具类方法
 
-
 ## 目录
 
 - [安装](#安装)
@@ -15,12 +14,10 @@
   - [.copy](#.copy)
   - [.dataStructure](#.dataStructure)
   - [.color](#.color)
+  - [.util](#.util)
 - [开发步骤](#开发步骤)
 
-
-
 ## 安装
-
 
 ```javascript
 // 全部引入
@@ -29,7 +26,6 @@ import * as utility from utility-mar;
 // 按需引入
 import {utiDate} from utility-mar;
 ```
-
 
 ## API
 
@@ -66,7 +62,7 @@ date参数:[Date] | 毫秒[Number] | 毫秒[String]
 
 校验相关
 
-#### 示例:
+#### 示例
 
 ```javascript
 import { validator as validatorOrigin } from utility-mar;
@@ -103,7 +99,7 @@ validator.validate({isEmpty:true,params:[
   })
 ```
 
-#### validator实例 API :  
+#### validator实例 API  
 
 * .getPattern({
       type:'mobile'
@@ -125,8 +121,6 @@ validator.validate({isEmpty:true,params:[
 
 返回:promise
 
-
-
 #### 默认支持的type类型
 
 qq
@@ -143,7 +137,6 @@ noBlank 匹配一个非空白符
 
 password 8位数字加字母的组合
 
-
 ### .copy
 
 1. .deepCopy 深拷贝
@@ -151,7 +144,6 @@ password 8位数字加字母的组合
 2. .deepDiff(parama, paramb) 比较
 
 如果相同，返回true。否则返回false
-
 
 ### .dataStructure
 
@@ -186,6 +178,9 @@ console.log(treeInstance.getNode(1).getParent().getData());
 
 - .getGradientColorsByNum
 
+### .util
+
+- .unionArray  合并两个数组，并集
 
 ## 开发步骤
 
@@ -194,7 +189,7 @@ npm install
 需要更新对应方法库，在src目录下对应方法文件编写即可  
 新增方法，在根目录index.js导出加入
 
-### 测试：
+### 测试
 
 安装mocha chai
 在test目录写对应js的测试文件  
