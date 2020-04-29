@@ -181,6 +181,7 @@ console.log(treeInstance.getNode(1).getParent().getData());
 ### .util
 
 - .unionArray  合并两个数组，并集
+- .throttle 节流函数
 
 ## 开发步骤
 
